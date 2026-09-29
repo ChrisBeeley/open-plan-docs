@@ -1,10 +1,8 @@
-name: Deploy Zensical Docs to Posit Connect
+name: Deploy to prod
 
 on:
-  push:
-    branches:
-      - main  # Runs automatically when changes hit main
-  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   deploy:
