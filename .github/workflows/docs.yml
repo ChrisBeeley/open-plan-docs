@@ -31,6 +31,6 @@ jobs:
           CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
         run: |
           rsconnect deploy html \
-            --directory ./site \
+            ./site \
             --title "Zensical Documentation"
             
