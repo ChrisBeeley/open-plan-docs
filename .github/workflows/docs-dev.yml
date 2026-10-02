@@ -19,18 +19,19 @@ jobs:
         with:
           python-version: '3.14'
 
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+
       - name: Install dependencies & build site
         run: |
-          python -m pip install --upgrade pip
-          pip install zensical rsconnect-python pandas tabulate
-          zensical build
+          uv run --group dev zensical build
 
       - name: Deploy static site to Posit Connect
         env:
           CONNECT_SERVER: ${{ secrets.CONNECT_SERVER }}
           CONNECT_API_KEY: ${{ secrets.CONNECT_API_KEY }}
         run: |
-          rsconnect deploy html \
+          uvx --from rsconnect-python rsconnect deploy html \
             ./site \
             --title "OpenPlan Hospital Capacity Conversion: Model Documentation dev" \
             --app-id a25ba00d-0b58-416e-81f0-bbbc8aeaa320
