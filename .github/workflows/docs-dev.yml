@@ -32,6 +32,6 @@ jobs:
         run: |
           rsconnect deploy html \
             ./site \
-            --title "Zensical Documentation"
+            --title "OpenPlan Hospital Capacity Conversion: Model Documentation dev"
             --app-id a25ba00d-0b58-416e-81f0-bbbc8aeaa320
             
